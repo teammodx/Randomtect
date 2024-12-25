@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Wingo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .text-view {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        #text2 {
+            color: #ff6600; /* Example color for the second text */
+        }
+
+        #text3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .history {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="text1" class="text-view">TRADING</div>
+        <div id="text2" class="text-view">WINGO 1 MIN PERIOD</div>
+        <div id="text3" class="text-view">BIG</div>
+        <div id="history" class="history"></div>
+    </div>
+
+    <script>
+        const text3 = document.getElementById("text3");
+        const history = document.getElementById("history");
+
+        function updateText3() {
+            const randomText = Math.random() > 0.5 ? "BIG" : "SMALL";
+            history.innerHTML += `<p>${new Date().toLocaleTimeString()} - ${randomText}</p>`;
+            text3.textContent = randomText;
+        }
+
+        // Update every 60 seconds
+        setInterval(updateText3, 60000);
+
+        // Initialize the first update
+        updateText3();
+    </script>
+</body>
+</html>
